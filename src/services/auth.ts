@@ -35,7 +35,7 @@ export const getCurrentUser = async (): Promise<AuthUser | null> => {
     .from('user_profiles')
     .select('*')
     .eq('id', user.id)
-    .single();
+    .maybeSingle();
 
   if (error) {
     console.error('Error fetching user profile:', error);
